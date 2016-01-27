@@ -47,7 +47,7 @@
 
     this.signout = function() {
       $window.localStorage.removeItem('com.pillMeNow');
-      $state.go('/signin');
+      $state.go('signin');
     };
   }
 
