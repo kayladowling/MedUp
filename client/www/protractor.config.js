@@ -18,7 +18,11 @@ exports.config = {
     includeStackTrace: true
   },
 
+
   allScriptsTimeout: 20000
+
+  allScriptsTimeout: 20000,
+
   
   onPrepare: function() {
     browser.driver.get('http://localhost:8100');
