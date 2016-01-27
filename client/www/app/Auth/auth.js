@@ -28,7 +28,7 @@
     };
 
     $scope.signup = function() {
-      console.log($scope.data);
+      console.log("Signup - Scope data " + $scope.data);
      AuthService.signup($scope.data)
         .then(function(data) {
           $state.go('dashboard');

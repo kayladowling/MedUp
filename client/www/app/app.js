@@ -55,7 +55,9 @@
     .factory('AttachTokens', function($window) {
       var attach = {
         request: function(object) {
+          // JWT stands for JSON Web Token 
           var jwt = $window.localStorage.getItem('com.pillMeNow');
+          // console.log(jwt);
           if (jwt) {
             object.headers['authorization'] = jwt;
             console.log("obj", object);
@@ -65,17 +67,17 @@
       };
       return attach;
     })
-    // .run(function($rootScope, $state, AuthService) {
-    //   $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+    .run(function($rootScope, $state, AuthService) {
+      $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
 
-    //     if (toState.name === 'login' || toState.name === 'register') {
-    //       return;
-    //     }
+        if (toState.name === 'signin' || toState.name === 'signup') {
+          return;
+        }
 
-    //     if (!AuthService.hasToken()) {
-    //       e.preventDefault();
-    //       $state.go('login');
-    //     }
-    //   });
-    // });
+        if (!AuthService.hasToken()) {
+          e.preventDefault();
+          $state.go('signin');
+        }
+      });
+    });
 })();

@@ -39,6 +39,7 @@
           url: 'http://localhost:3003/user/signup',
           data: user
         })
+
         .then(function(response) {
           $window.localStorage.setItem('com.pillMeNow', response.data.token);
           //return response.data.token;
