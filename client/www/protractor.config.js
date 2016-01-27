@@ -17,13 +17,10 @@ exports.config = {
     isVerbose: true,
     includeStackTrace: true
   },
-<<<<<<< HEAD
 
   allScriptsTimeout: 20000
 
-=======
-  allScriptsTimeout: 20000,
->>>>>>> (refactor) testing
+
   
   onPrepare: function() {
     browser.driver.get('http://localhost:8100');

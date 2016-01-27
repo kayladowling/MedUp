@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 // describe('requests made', function() {
 
@@ -56,7 +56,6 @@
 //     }, ]);
 //   });
 
-=======
 // describe('requests made', function() {
 
 //   afterEach(function() {
@@ -113,13 +112,9 @@
 //     }, ]);
 //   });
 
->>>>>>> (refactor) testing
 //   it('can clear requests', function() {
 //     mock.clearRequests();
 //     expect(mock.requestsMade()).toEqual([]);
 //   });
 // });
-<<<<<<< HEAD
 
-=======
->>>>>>> (refactor) testing
