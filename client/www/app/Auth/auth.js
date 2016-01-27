@@ -19,7 +19,6 @@
         .then(function(data) {
           $state.go('dashboard');
         }).catch(function(data) {
-          console.log(data);
           var alertPopup = $ionicPopup.alert({
             title: 'Login Failed',
             template: 'Please Check your credentials!'

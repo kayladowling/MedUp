@@ -1,16 +1,16 @@
 describe('Signup Authentication', function() {
-   // var registerURL;
-   // var email = element(by.name('register-email'));
-   // var password = element(by.name('register-password));
-   // var registerButton = element(by.xpath('//form[1]/input[@type="submit"]'));
-   // var error = element(by.model('registerError'));
+   var signinURL;
+   var email = element(by.model('data.username'));
+   var password = element(by.model('data.password'));
+   var signupButton = element(by.buttonText('Submit'));
+   var error = element(by.css('.popup-container.popup-showing.active'));
  
-   it('should redirect to the register page if trying to load protected page while not authenticated', function() {
-     browser.get('/#/signin');
-     registerURL = browser.getCurrentUrl();
+   it('should redirect to the signup page if trying to load protected page while not authenticated', function() {
+     browser.get('/#/signup');
+     signupURL = browser.getCurrentUrl();
  
-     browser.get('/#/');
-     expect(browser.getCurrentUrl()).toEqual(registerURL);
+     browser.get('/#/signup');
+     expect(browser.getCurrentUrl()).toEqual(signupURL);
    });
  
    it('should warn on missing/malformed credentials', function() {
@@ -18,16 +18,16 @@ describe('Signup Authentication', function() {
      password.clear();
  
      password.sendKeys('test');
-     registerButton.click();
+     signupButton.click();
      expect(error.getText()).toMatch('missing email');
  
      email.sendKeys('test');
-     registerButton.click();
+     signupButton.click();
      expect(error.getText()).toMatch('invalid email');
  
      email.sendKeys('@example.com');
      password.clear();
-     registerButton.click();
+     signupButton.click();
      expect(error.getText()).toMatch('missing password');
    });
  
@@ -37,8 +37,8 @@ describe('Signup Authentication', function() {
  // updated to test against username & password in database
      email.sendKeys('test@example.com');
      password.sendKeys('test');
-     registerButton.click();
-     expect(browser.getCurrentUrl()).not.toEqual(registerURL);
+     signupButton.click();
+     expect(browser.getCurrentUrl()).not.toEqual(signupURL);
    });
  
  });
