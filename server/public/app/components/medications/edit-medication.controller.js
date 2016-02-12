@@ -18,8 +18,8 @@ class editMedicationController {
     this.scope.factory = MedFactory;
   }
   submitMedication(medication) {
-    this.medication = medication;
-    this.factory.editMed(medication)
+
+    this.factory.editMed(JSON.parse(medication))
       .then((res) => {
         console.log('Medication Edited', res);
         console.log(res);
